@@ -3,6 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Vista;
+import javax.swing.*;
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -15,10 +19,11 @@ public class frm_calculadora extends javax.swing.JFrame {
         initComponents();
 
     }
+    private String currentInput = "";
     private double currentResult = 0;
-    private String currentInput = ""; 
-    private String operator = ""; 
-
+    private String operator = "";
+    private List<String> operationHistory = new ArrayList<>();
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,6 +33,8 @@ public class frm_calculadora extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        tp_principal = new javax.swing.JTabbedPane();
+        pn_calculadora = new javax.swing.JPanel();
         tf_pantalla = new javax.swing.JTextField();
         tf_0 = new javax.swing.JButton();
         tf_1 = new javax.swing.JButton();
@@ -47,6 +54,28 @@ public class frm_calculadora extends javax.swing.JFrame {
         tf_igual = new javax.swing.JButton();
         tf_borrar = new javax.swing.JButton();
         tf_borrar1 = new javax.swing.JButton();
+        pn_historial = new javax.swing.JPanel();
+        tf_historial = new javax.swing.JTextField();
+        pn_ayuda = new javax.swing.JPanel();
+        lbl_ayuda = new javax.swing.JLabel();
+        lbl_tx1 = new javax.swing.JLabel();
+        lbl_dcp1 = new javax.swing.JLabel();
+        lbl_dcp2 = new javax.swing.JLabel();
+        lbl_dcp3 = new javax.swing.JLabel();
+        lbl_dcp4 = new javax.swing.JLabel();
+        lbl_dcp5 = new javax.swing.JLabel();
+        lbl_dcp6 = new javax.swing.JLabel();
+        lbl_dcp7 = new javax.swing.JLabel();
+        lbl_dcp8 = new javax.swing.JLabel();
+        lbl_tx2 = new javax.swing.JLabel();
+        lbl_dcp9 = new javax.swing.JLabel();
+        lbl_dcp10 = new javax.swing.JLabel();
+        lbl_tx3 = new javax.swing.JLabel();
+        lbl_dcp11 = new javax.swing.JLabel();
+        lbl_dcp12 = new javax.swing.JLabel();
+        lbl_dcp13 = new javax.swing.JLabel();
+        lbl_dcp14 = new javax.swing.JLabel();
+        lbl_dcp15 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 204, 0));
@@ -54,7 +83,6 @@ public class frm_calculadora extends javax.swing.JFrame {
         tf_pantalla.setFont(new java.awt.Font("Segoe UI Black", 0, 48)); // NOI18N
         tf_pantalla.setAutoscrolls(false);
         tf_pantalla.setCursor(new java.awt.Cursor(java.awt.Cursor.MOVE_CURSOR));
-        tf_pantalla.setEnabled(false);
         tf_pantalla.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tf_pantallaActionPerformed(evt);
@@ -241,95 +269,342 @@ public class frm_calculadora extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(tf_pantalla, javax.swing.GroupLayout.PREFERRED_SIZE, 479, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(tf_1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(tf_2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(tf_3, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(tf_restar, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(tf_4, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(tf_5, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(tf_6, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(tf_multi, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(tf_7, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(tf_8, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(tf_9, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(tf_div, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(tf_0, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+        javax.swing.GroupLayout pn_calculadoraLayout = new javax.swing.GroupLayout(pn_calculadora);
+        pn_calculadora.setLayout(pn_calculadoraLayout);
+        pn_calculadoraLayout.setHorizontalGroup(
+            pn_calculadoraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pn_calculadoraLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(tf_pantalla, javax.swing.GroupLayout.PREFERRED_SIZE, 479, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(32, Short.MAX_VALUE))
+            .addGroup(pn_calculadoraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pn_calculadoraLayout.createSequentialGroup()
+                    .addGap(35, 35, 35)
+                    .addGroup(pn_calculadoraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(pn_calculadoraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pn_calculadoraLayout.createSequentialGroup()
+                                .addComponent(tf_1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(tf_punto, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(tf_2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(tf_suma, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(tf_3, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(tf_igual, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(tf_borrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(tf_borrar)))))
-                .addContainerGap(19, Short.MAX_VALUE))
+                                .addComponent(tf_restar, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(pn_calculadoraLayout.createSequentialGroup()
+                                .addComponent(tf_4, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(tf_5, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(tf_6, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(tf_multi, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(pn_calculadoraLayout.createSequentialGroup()
+                                .addComponent(tf_7, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(tf_8, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(tf_9, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(tf_div, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(pn_calculadoraLayout.createSequentialGroup()
+                            .addComponent(tf_0, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(tf_punto, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(tf_suma, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(tf_igual, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(pn_calculadoraLayout.createSequentialGroup()
+                            .addComponent(tf_borrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(tf_borrar)))
+                    .addContainerGap(65, Short.MAX_VALUE)))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+        pn_calculadoraLayout.setVerticalGroup(
+            pn_calculadoraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pn_calculadoraLayout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(tf_pantalla, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tf_7, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tf_8, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tf_9, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tf_div, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tf_4, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tf_5, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tf_6, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tf_multi, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tf_1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tf_2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tf_3, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tf_restar, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tf_0, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tf_punto, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tf_suma, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tf_igual, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tf_borrar, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tf_borrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(526, Short.MAX_VALUE))
+            .addGroup(pn_calculadoraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pn_calculadoraLayout.createSequentialGroup()
+                    .addGap(160, 160, 160)
+                    .addGroup(pn_calculadoraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(tf_7, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tf_8, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tf_9, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tf_div, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGroup(pn_calculadoraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(tf_4, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tf_5, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tf_6, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tf_multi, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGroup(pn_calculadoraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(tf_1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tf_2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tf_3, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tf_restar, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(18, 18, 18)
+                    .addGroup(pn_calculadoraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(tf_0, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tf_punto, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tf_suma, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tf_igual, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(18, 18, 18)
+                    .addGroup(pn_calculadoraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(tf_borrar, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tf_borrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         tf_pantalla.getAccessibleContext().setAccessibleName("");
         tf_pantalla.getAccessibleContext().setAccessibleDescription("");
+
+        tp_principal.addTab("CALCULADORA", pn_calculadora);
+
+        javax.swing.GroupLayout pn_historialLayout = new javax.swing.GroupLayout(pn_historial);
+        pn_historial.setLayout(pn_historialLayout);
+        pn_historialLayout.setHorizontalGroup(
+            pn_historialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn_historialLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(tf_historial, javax.swing.GroupLayout.DEFAULT_SIZE, 518, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        pn_historialLayout.setVerticalGroup(
+            pn_historialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(tf_historial, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 668, Short.MAX_VALUE)
+        );
+
+        tp_principal.addTab("HISTORIAL", pn_historial);
+
+        lbl_ayuda.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
+        lbl_ayuda.setText("Guía Básica para Usar una Calculadora ");
+        lbl_ayuda.setAlignmentX(0.5F);
+
+        lbl_tx1.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        lbl_tx1.setText("1. Realizar Operaciones Aritméticas Básicas ");
+
+        lbl_dcp1.setText("Suma (+): Introduce el primer número, presiona el botón +,introduce el segundo número ");
+        lbl_dcp1.setToolTipText("");
+        lbl_dcp1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        lbl_dcp1.setIconTextGap(5);
+        lbl_dcp1.setMaximumSize(new java.awt.Dimension(74, 16));
+        lbl_dcp1.setName(""); // NOI18N
+
+        lbl_dcp2.setText("y luego presiona = para obtener el resultado.");
+        lbl_dcp2.setToolTipText("");
+        lbl_dcp2.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        lbl_dcp2.setIconTextGap(5);
+        lbl_dcp2.setMaximumSize(new java.awt.Dimension(74, 16));
+        lbl_dcp2.setName(""); // NOI18N
+
+        lbl_dcp3.setText("Resta (-): Introduce el primer número, presiona el botón -, introduce el segundo número");
+        lbl_dcp3.setToolTipText("");
+        lbl_dcp3.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        lbl_dcp3.setIconTextGap(5);
+        lbl_dcp3.setMaximumSize(new java.awt.Dimension(74, 16));
+        lbl_dcp3.setName(""); // NOI18N
+
+        lbl_dcp4.setText("y luego presiona =");
+        lbl_dcp4.setToolTipText("");
+        lbl_dcp4.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        lbl_dcp4.setIconTextGap(5);
+        lbl_dcp4.setMaximumSize(new java.awt.Dimension(74, 16));
+        lbl_dcp4.setName(""); // NOI18N
+
+        lbl_dcp5.setText("número y luego presiona =");
+        lbl_dcp5.setToolTipText("");
+        lbl_dcp5.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        lbl_dcp5.setIconTextGap(5);
+        lbl_dcp5.setMaximumSize(new java.awt.Dimension(74, 16));
+        lbl_dcp5.setName(""); // NOI18N
+
+        lbl_dcp6.setText("Multiplicación (*): Introduce el primer número, presiona el botón *, introduce el segundo ");
+        lbl_dcp6.setToolTipText("");
+        lbl_dcp6.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        lbl_dcp6.setIconTextGap(5);
+        lbl_dcp6.setMaximumSize(new java.awt.Dimension(74, 16));
+        lbl_dcp6.setName(""); // NOI18N
+
+        lbl_dcp7.setText("División (/): Introduce el primer número, presiona el botón /, introduce el segundo número");
+        lbl_dcp7.setToolTipText("");
+        lbl_dcp7.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        lbl_dcp7.setIconTextGap(5);
+        lbl_dcp7.setMaximumSize(new java.awt.Dimension(74, 16));
+        lbl_dcp7.setName(""); // NOI18N
+
+        lbl_dcp8.setText("y luego presiona =.");
+        lbl_dcp8.setToolTipText("");
+        lbl_dcp8.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        lbl_dcp8.setIconTextGap(5);
+        lbl_dcp8.setMaximumSize(new java.awt.Dimension(74, 16));
+        lbl_dcp8.setName(""); // NOI18N
+
+        lbl_tx2.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        lbl_tx2.setText("2. Funciones Basica");
+
+        lbl_dcp9.setText("Retroceso: Borra el último dígito ingresado. ");
+        lbl_dcp9.setToolTipText("");
+        lbl_dcp9.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        lbl_dcp9.setIconTextGap(5);
+        lbl_dcp9.setMaximumSize(new java.awt.Dimension(74, 16));
+        lbl_dcp9.setName(""); // NOI18N
+
+        lbl_dcp10.setText("Borrar: Borra la entrada actual. ");
+        lbl_dcp10.setToolTipText("");
+        lbl_dcp10.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        lbl_dcp10.setIconTextGap(5);
+        lbl_dcp10.setMaximumSize(new java.awt.Dimension(74, 16));
+        lbl_dcp10.setName(""); // NOI18N
+
+        lbl_tx3.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        lbl_tx3.setText("3. Consejos Adicionales ");
+
+        lbl_dcp11.setText("Errores de Entrada: Si cometes un error, usa el botón Retroceso para eliminar el último ");
+        lbl_dcp11.setToolTipText("");
+        lbl_dcp11.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        lbl_dcp11.setIconTextGap(5);
+        lbl_dcp11.setMaximumSize(new java.awt.Dimension(74, 16));
+        lbl_dcp11.setName(""); // NOI18N
+
+        lbl_dcp12.setText("dígito o C para borrar la entrada actual.");
+        lbl_dcp12.setToolTipText("");
+        lbl_dcp12.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        lbl_dcp12.setIconTextGap(5);
+        lbl_dcp12.setMaximumSize(new java.awt.Dimension(74, 16));
+        lbl_dcp12.setName(""); // NOI18N
+
+        lbl_dcp13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_dcp13.setText("Si tienes alguna pregunta específica o necesitas ayuda con una función");
+        lbl_dcp13.setToolTipText("");
+        lbl_dcp13.setIconTextGap(5);
+        lbl_dcp13.setMaximumSize(new java.awt.Dimension(74, 16));
+        lbl_dcp13.setName(""); // NOI18N
+
+        lbl_dcp14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_dcp14.setText("Esta guía debería ayudarte a utilizar una calculadora básica de manera efectiva.");
+        lbl_dcp14.setToolTipText("");
+        lbl_dcp14.setIconTextGap(5);
+        lbl_dcp14.setMaximumSize(new java.awt.Dimension(74, 16));
+        lbl_dcp14.setName(""); // NOI18N
+
+        lbl_dcp15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_dcp15.setText(" particular, no dudes en preguntar.");
+        lbl_dcp15.setToolTipText("");
+        lbl_dcp15.setIconTextGap(5);
+        lbl_dcp15.setMaximumSize(new java.awt.Dimension(74, 16));
+        lbl_dcp15.setName(""); // NOI18N
+
+        javax.swing.GroupLayout pn_ayudaLayout = new javax.swing.GroupLayout(pn_ayuda);
+        pn_ayuda.setLayout(pn_ayudaLayout);
+        pn_ayudaLayout.setHorizontalGroup(
+            pn_ayudaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pn_ayudaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pn_ayudaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbl_dcp14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lbl_dcp13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lbl_dcp15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(pn_ayudaLayout.createSequentialGroup()
+                        .addGroup(pn_ayudaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbl_ayuda)
+                            .addGroup(pn_ayudaLayout.createSequentialGroup()
+                                .addGap(79, 79, 79)
+                                .addComponent(lbl_tx1)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(pn_ayudaLayout.createSequentialGroup()
+                        .addGroup(pn_ayudaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pn_ayudaLayout.createSequentialGroup()
+                                .addGap(146, 146, 146)
+                                .addComponent(lbl_tx2))
+                            .addGroup(pn_ayudaLayout.createSequentialGroup()
+                                .addGap(141, 141, 141)
+                                .addComponent(lbl_tx3)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(pn_ayudaLayout.createSequentialGroup()
+                        .addComponent(lbl_dcp1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(14, 14, 14))
+                    .addGroup(pn_ayudaLayout.createSequentialGroup()
+                        .addComponent(lbl_dcp2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(pn_ayudaLayout.createSequentialGroup()
+                        .addComponent(lbl_dcp3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(8, 8, 8))
+                    .addComponent(lbl_dcp4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lbl_dcp5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(pn_ayudaLayout.createSequentialGroup()
+                        .addComponent(lbl_dcp6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(8, 8, 8))
+                    .addComponent(lbl_dcp9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lbl_dcp10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lbl_dcp11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lbl_dcp12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lbl_dcp8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(pn_ayudaLayout.createSequentialGroup()
+                        .addComponent(lbl_dcp7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(8, 8, 8))))
+        );
+        pn_ayudaLayout.setVerticalGroup(
+            pn_ayudaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn_ayudaLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(lbl_ayuda, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbl_tx1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lbl_dcp1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbl_dcp2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lbl_dcp3, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbl_dcp4, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lbl_dcp6, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbl_dcp5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(lbl_dcp7, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbl_dcp8, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lbl_tx2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lbl_dcp9, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lbl_dcp10, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lbl_tx3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbl_dcp11, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbl_dcp12, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(lbl_dcp14, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbl_dcp13, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbl_dcp15, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(125, 125, 125))
+        );
+
+        tp_principal.addTab("AYUDA", pn_ayuda);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(tp_principal, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(tp_principal, javax.swing.GroupLayout.PREFERRED_SIZE, 703, Short.MAX_VALUE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -433,16 +708,11 @@ public class frm_calculadora extends javax.swing.JFrame {
     operator = "";
     tf_pantalla.setText("");
     }//GEN-LAST:event_tf_borrar1ActionPerformed
-private void appendToDisplay(String value) {
-        currentInput += value;
-        tf_pantalla.setText(currentInput);
-        
-    
-    }
-private void appendNumber(String number) {
+    private void appendNumber(String number) {
         currentInput += number;
         tf_pantalla.setText(currentInput);
-}
+    }
+
     private void setOperator(String op) {
         if (!currentInput.isEmpty()) {
             currentResult = Double.parseDouble(currentInput);
@@ -450,38 +720,51 @@ private void appendNumber(String number) {
             operator = op;
         }
     }
-    private void calculateResult(){
-       if(!currentInput.isEmpty()&& !operator.isEmpty() ){
-           double inputNumber = Double.parseDouble(currentInput);
-           switch(operator){
-               case "+":
-                   currentResult += inputNumber;
-                   break;
-                   case "-":
-                   currentResult -= inputNumber;
-                   break;
-                      case "*":
-                   currentResult *= inputNumber;
-                   break;
-                      case "/":
-                   if (inputNumber != 0){
-                       currentResult /= inputNumber;
-                   } else{
-                       tf_pantalla.setText("Error");
-                       return;
-                   }
-                   break;
-           }
-           
-       }
-         tf_pantalla.setText(Double.toString(currentResult));
-         currentInput = Double.toString(currentResult);
-         operator = "";
+
+    private void updateHistory(String operation, double result) {
+        String newEntry = operation + " = " + new DecimalFormat("#.######").format(result) + "\n";
+        operationHistory.add(0, newEntry); // Add new entry at the beginning
     }
+
+    private void calculateResult() {
+        if (!currentInput.isEmpty() && !operator.isEmpty()) {
+            double inputNumber = Double.parseDouble(currentInput);
+            switch (operator) {
+                case "+":
+                    currentResult += inputNumber;
+                    break;
+                case "-":
+                    currentResult -= inputNumber;
+                    break;
+                case "*":
+                    currentResult *= inputNumber;
+                    break;
+                case "/":
+                    if (inputNumber != 0) {
+                        currentResult /= inputNumber;
+                    } else {
+                        tf_pantalla.setText("Error");
+                        currentResult = 0;
+                        currentInput = "";
+                        operator = "";
+                        return;
+                    }
+                    break;
+            }
+            String operation = currentResult + " " + operator + " " + inputNumber;
+            updateHistory(operation, currentResult);
+            tf_pantalla.setText(String.valueOf(currentResult));
+            currentInput = "";
+            operator = "";
+    }
+}
+    
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -514,6 +797,28 @@ private void appendNumber(String number) {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel lbl_ayuda;
+    private javax.swing.JLabel lbl_dcp1;
+    private javax.swing.JLabel lbl_dcp10;
+    private javax.swing.JLabel lbl_dcp11;
+    private javax.swing.JLabel lbl_dcp12;
+    private javax.swing.JLabel lbl_dcp13;
+    private javax.swing.JLabel lbl_dcp14;
+    private javax.swing.JLabel lbl_dcp15;
+    private javax.swing.JLabel lbl_dcp2;
+    private javax.swing.JLabel lbl_dcp3;
+    private javax.swing.JLabel lbl_dcp4;
+    private javax.swing.JLabel lbl_dcp5;
+    private javax.swing.JLabel lbl_dcp6;
+    private javax.swing.JLabel lbl_dcp7;
+    private javax.swing.JLabel lbl_dcp8;
+    private javax.swing.JLabel lbl_dcp9;
+    private javax.swing.JLabel lbl_tx1;
+    private javax.swing.JLabel lbl_tx2;
+    private javax.swing.JLabel lbl_tx3;
+    private javax.swing.JPanel pn_ayuda;
+    private javax.swing.JPanel pn_calculadora;
+    private javax.swing.JPanel pn_historial;
     private javax.swing.JButton tf_0;
     private javax.swing.JButton tf_1;
     private javax.swing.JButton tf_2;
@@ -527,11 +832,13 @@ private void appendNumber(String number) {
     private javax.swing.JButton tf_borrar;
     private javax.swing.JButton tf_borrar1;
     private javax.swing.JButton tf_div;
+    private javax.swing.JTextField tf_historial;
     private javax.swing.JButton tf_igual;
     private javax.swing.JButton tf_multi;
     private javax.swing.JTextField tf_pantalla;
     private javax.swing.JButton tf_punto;
     private javax.swing.JButton tf_restar;
     private javax.swing.JButton tf_suma;
+    private javax.swing.JTabbedPane tp_principal;
     // End of variables declaration//GEN-END:variables
 }
