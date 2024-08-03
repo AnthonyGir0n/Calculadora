@@ -3,12 +3,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Vista;
-import javax.swing.*;
+import java.awt.Toolkit;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.List;
-import java.awt.event.*;
-import javax.swing.JTextArea;
+import javax.swing.*;
+
 /**
  *
  * @author Anthony Giron
@@ -16,10 +20,16 @@ import javax.swing.JTextArea;
 
 public class frm_calculadora extends javax.swing.JFrame {
 
-
+ 
     public frm_calculadora() {
         initComponents();
-        
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                saveHistoryToFile();
+                System.exit(0); 
+                 }
+        });
     }
     private String currentInput = "";
     private double currentResult = 0;
@@ -374,6 +384,7 @@ public class frm_calculadora extends javax.swing.JFrame {
 
         tp_principal.addTab("CALCULADORA", pn_calculadora);
 
+        tx_historial2.setEditable(false);
         tx_historial2.setColumns(20);
         tx_historial2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         tx_historial2.setRows(5);
@@ -636,81 +647,113 @@ public class frm_calculadora extends javax.swing.JFrame {
     private void tf_7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_7ActionPerformed
         // TODO add your handling code here:
          appendNumber("7");
+             Toolkit.getDefaultToolkit().beep();
+
     }//GEN-LAST:event_tf_7ActionPerformed
 
     private void tf_8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_8ActionPerformed
         // TODO add your handling code here:
          appendNumber("8");
+             Toolkit.getDefaultToolkit().beep();
+
     }//GEN-LAST:event_tf_8ActionPerformed
 
     private void tf_9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_9ActionPerformed
         // TODO add your handling code here:
          appendNumber("9");
+             Toolkit.getDefaultToolkit().beep();
+
     }//GEN-LAST:event_tf_9ActionPerformed
 
     private void tf_divActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_divActionPerformed
         // TODO add your handling code here:
          setOperator("/");
+             Toolkit.getDefaultToolkit().beep();
+
     }//GEN-LAST:event_tf_divActionPerformed
 
     private void tf_4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_4ActionPerformed
         // TODO add your handling code here:
          appendNumber("4");
+             Toolkit.getDefaultToolkit().beep();
+
     }//GEN-LAST:event_tf_4ActionPerformed
 
     private void tf_5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_5ActionPerformed
         // TODO add your handling code here:
          appendNumber("5");
+             Toolkit.getDefaultToolkit().beep();
+
     }//GEN-LAST:event_tf_5ActionPerformed
 
     private void tf_6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_6ActionPerformed
         // TODO add your handling code here
         appendNumber("6");
+            Toolkit.getDefaultToolkit().beep();
+
     }//GEN-LAST:event_tf_6ActionPerformed
 
     private void tf_multiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_multiActionPerformed
         // TODO add your handling code here:
          setOperator("*");
+             Toolkit.getDefaultToolkit().beep();
+
     }//GEN-LAST:event_tf_multiActionPerformed
 
     private void tf_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_1ActionPerformed
         // TODO add your handling code here:
          appendNumber("1");
+             Toolkit.getDefaultToolkit().beep();
+
     }//GEN-LAST:event_tf_1ActionPerformed
 
     private void tf_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_2ActionPerformed
         // TODO add your handling code here:
          appendNumber("2");
+             Toolkit.getDefaultToolkit().beep();
+
     }//GEN-LAST:event_tf_2ActionPerformed
 
     private void tf_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_3ActionPerformed
         // TODO add your handling code here:
          appendNumber("3");
+             Toolkit.getDefaultToolkit().beep();
+
     }//GEN-LAST:event_tf_3ActionPerformed
 
     private void tf_restarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_restarActionPerformed
         // TODO add your handling code here:
          setOperator("-");
+             Toolkit.getDefaultToolkit().beep();
+
     }//GEN-LAST:event_tf_restarActionPerformed
 
     private void tf_0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_0ActionPerformed
         // TODO add your handling code here:
          appendNumber("0");
+             Toolkit.getDefaultToolkit().beep();
+
     }//GEN-LAST:event_tf_0ActionPerformed
 
     private void tf_puntoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_puntoActionPerformed
         // TODO add your handling code here:
          appendNumber(".");
+             Toolkit.getDefaultToolkit().beep();
+
     }//GEN-LAST:event_tf_puntoActionPerformed
 
     private void tf_sumaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_sumaActionPerformed
         // TODO add your handling code here:
          setOperator("+");
+             Toolkit.getDefaultToolkit().beep();
+
     }//GEN-LAST:event_tf_sumaActionPerformed
 
     private void tf_igualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_igualActionPerformed
         // TODO add your handling code here:
     calculateResult();
+        Toolkit.getDefaultToolkit().beep();
+
     }//GEN-LAST:event_tf_igualActionPerformed
 
     private void tf_pantallaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_pantallaActionPerformed
@@ -722,6 +765,7 @@ public class frm_calculadora extends javax.swing.JFrame {
         if (!currentInput.isEmpty()) {
         currentInput = currentInput.substring(0, currentInput.length() - 1);
         tf_pantalla.setText(currentInput);
+            Toolkit.getDefaultToolkit().beep();
     }
     }//GEN-LAST:event_tf_borrarActionPerformed
 
@@ -731,6 +775,8 @@ public class frm_calculadora extends javax.swing.JFrame {
     currentResult = 0;
     operator = "";
     tf_pantalla.setText("");
+        Toolkit.getDefaultToolkit().beep();
+
     }//GEN-LAST:event_tf_borrar1ActionPerformed
 
     private void tf_7KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tf_7KeyPressed
@@ -738,6 +784,8 @@ public class frm_calculadora extends javax.swing.JFrame {
      private void appendNumber(String number) {
         currentInput += number;
         tf_pantalla.setText(currentInput);
+            Toolkit.getDefaultToolkit().beep();
+
     }
 
     private void setOperator(String op) {
@@ -748,10 +796,11 @@ public class frm_calculadora extends javax.swing.JFrame {
         }
     }
 
-    private void updateHistory(String operation, double result) {
+    
+     private void updateHistory(String operation, double result) {
         String newEntry = operation + " = " + new DecimalFormat("#.######").format(result) + "\n";
-        operationHistory.add(0, newEntry); // Add new entry at the beginning
-        // Update the JTextArea with the latest history
+        operationHistory.add(0, newEntry); // Añadir nueva entrada al principio
+        // Actualizar el JTextArea con el historial más reciente
         StringBuilder historyText = new StringBuilder();
         for (String entry : operationHistory) {
             historyText.append(entry);
@@ -762,6 +811,7 @@ public class frm_calculadora extends javax.swing.JFrame {
     private void calculateResult() {
         if (!currentInput.isEmpty() && !operator.isEmpty()) {
             double inputNumber = Double.parseDouble(currentInput);
+            String operation = currentResult + " " + operator + " " + inputNumber;
             switch (operator) {
                 case "+":
                     currentResult += inputNumber;
@@ -784,14 +834,22 @@ public class frm_calculadora extends javax.swing.JFrame {
                     }
                     break;
             }
-            String operation = currentResult + " " + operator + " " + inputNumber;
             updateHistory(operation, currentResult);
             tf_pantalla.setText(String.valueOf(currentResult));
             currentInput = "";
             operator = "";
     }
 }
-    
+    private void saveHistoryToFile() {
+    String filePath = "C:\\Users\\Anthony Giron\\Documents\\NetBeansProjects\\pr_calculadora\\Bitacora\\bitacora.txt";
+    try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+        for (String entry : operationHistory) {
+            writer.write(entry);
+        }
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+}
 
     /**
      * @param args the command line arguments
